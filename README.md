@@ -13,7 +13,7 @@ See that little black text-prompt on the top-center of the screen? That is the c
 7. howTo <what>| similar to `bing <query>` except adds "How to " to the search query.
 8. opn <place>| <place> must be either `gmail` or `scratch`, limited opens. 
 9. bob-inf| gives info about bob
-10. bob-update| refreshes page to "update" Bob (basically check `src` folder for updates)
+10. bob-update| refreshes page to "update" Bob (basically check `docs` folder for updates by refreshing Bob). Note: All interactions with Bob will be lost.
 11. calc <expression>| calculates an arithmetic expression 
 12. bob-msg _m:<msg>_r<recipients email or contact name>| drafts quick message in default mail app and prepares to send.
 13. addContax name:<contaxname>_p:<people(s) email adresses seperated with semicolons>| adds contact with which recipients can be easily referred to in `bob-msg`

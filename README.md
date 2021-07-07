@@ -17,4 +17,4 @@ See that little black text-prompt on the top-center of the screen? That is the c
 11. calc <expression>| calculates an arithmetic expression 
 12. bob-msg _m:<msg>_r<recipients email or contact name>| drafts quick message in default mail app and prepares to send.
 13. addContax name:<contaxname>_p:<people(s) email adresses seperated with semicolons>| adds contact with which recipients can be easily referred to in `bob-msg`
-14. opn <replname>_in repl| opens a repl in https://replit.com. 
+### Feel free to edit and contribute to Bob!

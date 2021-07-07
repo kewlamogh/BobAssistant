@@ -1,0 +1,36 @@
+
+* {
+  font-family: 'Fira Code', monospace;
+  border: 0px solid white;
+  color: white;
+  background-color: black;
+  font-size: 13px;
+}
+#chat {
+  border-radius: 10px;
+  border: 2px solid black;
+  overflow-y:auto;
+}
+#redTex {
+  color: red;
+}
+div {
+  text-align: center;
+}
+::placeholder {
+  color: gray;
+  text-align: left;
+}
+::value {
+  text-align: left;
+}
+a {
+  color: purple;
+}
+a:active {
+  color: orange;
+}
+input {
+  width: 150px;
+  outline: 0px solid transparent;
+}

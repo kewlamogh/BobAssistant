@@ -3,7 +3,7 @@
 ## Inspiration
 Cortana and Google Home
 ## How to use
-See that little black text-prompt on the top-center of the screen? That is the command line, where you enter Bob's commands. [Bob isn't voice commanded or GUI]. To get more commands type `bob-cmds` in the command line prompt. A list of the commands are:
+See that little black text-prompt on the top-center of the screen? That is the command line, where you enter Bob's commands. [Bob isn't voice commanded or GUI]. The list of the commands is:
 1. datetime| one of the first commands for Bob :)
 2. clear| clear console
 3. bing <query>| bing searchs <query> and opens the results in a new tab

@@ -1,15 +1,18 @@
-let todos = [];
-let custmOpns = {};
-let contax = {};
+let todos = []; //todos
+let custmOpns = {}; //opns other than gmail 
+let contax = {}; //contacts
 custmOpns['scratch'] = 'https://scratch.mit.edu';
-custmOpns['diary'] = 'https://onedrive.live.com/edit.aspx?resid=53FFA026F34A670C!651&ithint=file%2cdocx&wdOrigin=OFFICECOM-WEB.START.MRU';
 function process(cmd) {
-  let chars = cmd.split("");
-  if (listsAreSame(chars, "datetime".split(""))) {
+  //always return out of the process func if cmd is valid and execed
+  //if you don't then the error at the bottom will execute
+  //:)
+  let chars = cmd.split(""); // chars
+  if (listsAreSame(chars, "datetime".split(""))) { //comparing lists, slightly inneficient
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     let currentDate = new Date();
-    let time = currentDate.getHours()+5 + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+    let time = currentDate.getHours()+5 + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(); //concat
+    
     inject(today + " at " + time);
     return;
   }
@@ -124,12 +127,13 @@ function process(cmd) {
     inject('Welcome! If you like me, please upvote the project here: <a href = "https://replit.com/@AmoghTheCool/Bob-web?v=1"> </a>');
     return;
   }
-  inject('<div id = "redTex">Invalid: '+cmd+"</div>");
+  inject('<div id = "redTex">Invalid: '+cmd+"</div>"); //id  = 'redText' makes the text red - usually used in errors
   localStorage.setItem('contax', JSON.stringify(contax));
 }
 document.getElementById('cmd').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) { wut();document.getElementById('cmd').value = '';}
 }) 
+//gets "slice" of list
 function pars(startIndx, li) {
   let out = '';
   for (var i = startIndx; i <= li.length - 1; i++) {
@@ -137,6 +141,7 @@ function pars(startIndx, li) {
   }
   return out
 }
+//comparing lists
 function listsAreSame(l1, l2) {
   for (var i = 0; i <= l1.length; i++) {
     if (l1[i] != l2[i]) {
@@ -145,16 +150,10 @@ function listsAreSame(l1, l2) {
   }
   return true
 }
-function indexparse(i1, i2, l) {
-  let outp = '';
-  for (var p = i1; p <= i2; p++) {
-    outp += l[p];
-  }
-  return outp;
-}
+
 function inject(w) {
-    document.getElementById('chat').innerHTML = "<h1><br></h1>>"+cmd.value+"<br>"+w+document.getElementById('chat').innerHTML;
+    document.getElementById('chat').innerHTML = "<h1><br></h1>>"+cmd.value+"<br>"+w+document.getElementById('chat').innerHTML; //nothing to modify here
 }
-function wut() {
+function call() {
   process(document.getElementById('cmd').value)
 }

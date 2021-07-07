@@ -131,7 +131,7 @@ function process(cmd) {
   localStorage.setItem('contax', JSON.stringify(contax));
 }
 document.getElementById('cmd').addEventListener('keypress', function (event) {
-  if (event.keyCode == 13) { wut();document.getElementById('cmd').value = '';}
+  if (event.keyCode == 13) { call();document.getElementById('cmd').value = '';}
 }) 
 //gets "slice" of list
 function pars(startIndx, li) {

@@ -34,3 +34,69 @@ input {
   width: 150px;
   outline: 0px solid transparent;
 }
+* {
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: black;
+    color: purple;
+    overflow: hidden;   
+    font-size: 25px;
+}
+q {
+    quotes: "''" "''";
+    color: white;
+}
+li,i,h2 {
+    color:white;
+}
+@keyframes changeBackgroundColor {
+    0% {background-color: black; color: orange; text-decoration-color: orange;}
+    100% {background-color: orange; color: white; text-decoration-color: white;}
+}
+@keyframes ackButtonHover {
+    0% {background-color: black; color: purple;}
+    50% {background-color: black; color: purple;}
+    100% {background-color: purple; color: black; border-color:purple;}
+}
+a {
+    text-decoration: overline;  
+    color: orange;
+    font-size:35px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+a:hover {   
+    animation: changeBackgroundColor 0.5s;
+    background-color: orange;
+    color: white;
+}
+a:active {
+    color: purple;
+}
+button:hover {
+    cursor: pointer;
+    animation: ackButtonHover 0.5s;
+    background-color: purple;
+    color: black;
+    border-color:purple;
+}
+button {
+    border-radius: 10px;
+    border: 2px solid purple;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+h1 {
+    font-size: 70px;
+}
+h3 {
+    font-size: 40px;
+    color: white;
+    word-wrap: break-word;
+}
+canvas {
+    border: 2px solid purple;
+}
+.inline {
+    display: inline-flex;
+}

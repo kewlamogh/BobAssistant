@@ -43,9 +43,8 @@ li,i,h2 {
     100% {background-color: purple; color: black; border-color:purple;}
 }
 a {
-    text-decoration: overline;  
+    text-decoration: overline;        
     color: orange;
-    font-size:16px;
     padding-left: 5px;
     padding-right: 5px;
 }

@@ -26,6 +26,7 @@ function process(cmd) {
   }
   if (cmd.indexOf('bing ') >= 0) {
     window.open('https://www.bing.com/search?q='+pars(5, chars).replace(' ', '+'), '_blank')
+    inject('https://www.bing.com/search?q='+pars(5, chars).replace(' ', '+'), '_blank');
     return;
   }
   if (cmd == 'you suck!') {

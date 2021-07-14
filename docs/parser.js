@@ -152,7 +152,7 @@ function listsAreSame(l1, l2) {
 }
 
 function inject(w) {
-    document.getElementById('chat').innerHTML = "<h1><br></h1>>"+cmd.value+"<br>"+w+document.getElementById('chat').innerHTML; //nothing to modify here
+    document.getElementById('chat').innerHTML = "<h1></h1>>"+cmd.value+"<br>"+w+document.getElementById('chat').innerHTML; //nothing to modify here
 }
 function call() {
   process(document.getElementById('cmd').value)

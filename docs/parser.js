@@ -124,7 +124,7 @@ function process(cmd) {
     return;
   }
   if ('thanks' == cmd || 'thanks!' == cmd || 'thx' == cmd || 'thx!' == cmd) {
-    inject('Welcome! If you like me, please upvote the project here: <a href = "https://replit.com/@AmoghTheCool/Bob-web?v=1"> </a>');
+    inject('Welcome! If you like me, please upvote the project here: <a href = "https://github.com/kewlamogh/BobAssistant">Bob</a>');
     return;
   }
   inject('<div id = "redTex">Invalid: '+cmd+"</div>"); //id  = 'redText' makes the text red - usually used in errors

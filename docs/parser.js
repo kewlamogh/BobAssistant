@@ -106,7 +106,7 @@ function process(cmd) {
     return;
   }
   if (cmd == 'bob-update') {
-    window.location.href = 'https://bob-web.amoghthecool.repl.co';
+    window.location.href = 'https://kewlamogh.github.io/BobAssistant';
     return;
   }
   if (cmd.indexOf('calc ') >= 0) {

@@ -18,6 +18,7 @@ function process(cmd) {
   }
   if (cmd.indexOf('whatIs ') >= 0) {
     window.open('https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+'), '_blank');
+    inject(genAnchor('https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+')));
     return;
   }
   if (listsAreSame(chars, "clear".split(''))) {
@@ -35,6 +36,7 @@ function process(cmd) {
   }
   if (cmd.indexOf('def ') >= 0) {
     window.open('https://www.bing.com/search?q=meaning+of+'+pars(4, chars).replace(' ', '+'), '_blank')
+    inject(genAnchor('https://www.bing.com/search?q=meaning+of+'+pars(4, chars).replace(' ', '+')));
     return;
   }
   if (cmd.indexOf('addTodo ') >= 0) {
@@ -134,6 +136,13 @@ function process(cmd) {
 document.getElementById('cmd').addEventListener('keypress', function (event) {
   if (event.keyCode == 13) { call();document.getElementById('cmd').value = '';}
 }) 
+function genAnchor(src) {
+  let myNewAnchor = document.createElement('a');
+  myNewAnchor.href = src;
+  myNewAnchor.target = '_blank';
+  myNewAnchor.innerText = 'Link here';
+  return myNewAnchor;
+}
 //gets "slice" of list
 function pars(startIndx, li) {
   let out = '';

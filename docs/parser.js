@@ -1,7 +1,7 @@
 let todos = []; //todos
 let custmOpns = {}; //opns other than gmail 
 let contax = {}; //contacts
-custmOpns['scratch'] = 'https://scratch.mit.edu';
+
 function process(cmd) {
   //always return out of the process func if cmd is valid and execed
   //if you don't then the error at the bottom will execute
@@ -167,3 +167,6 @@ function inject(w) {
 function call() {
   process(document.getElementById('cmd').value)
 }
+
+custmOpns['scratch'] = 'https://scratch.mit.edu';
+

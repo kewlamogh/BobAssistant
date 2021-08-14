@@ -1,8 +1,15 @@
 let todos = []; //todos
 let custmOpns = {}; //opns other than gmail 
-let contax = {}; //contacts
+let contax = localStorage.getItem("contax") || {}; //contacts
+eval((contax == {} ? "localStorage.setItem('contax', '{'ah': 'oof'}')" : "//nothing"));
+contax = (contax != {} ? JSON.parse(contax) : contax);
+
+function updateLocalContax(contax) {
+  localStorage.setItem("contax", JSON.stringify(contax));
+}
 
 function process(cmd) {
+  updateLocalContax(contax);
   //always return out of the process func if cmd is valid and execed
   //if you don't then the error at the bottom will execute
   //:)
@@ -86,7 +93,8 @@ function process(cmd) {
     const name = cmd.split('name:')[1].split('_p')[0];
     const email = cmd.split('_p')[1];
     contax[name] = email;
-    inject('Contact added')
+    inject('Contact added');
+    updateLocalContax();
     return;
   }
   if (cmd == 'bob-inf') {
@@ -130,6 +138,7 @@ function process(cmd) {
     inject('Welcome! If you like me, please upvote the project here: <a href = "https://github.com/kewlamogh/BobAssistant">Bob</a>');
     return;
   }
+  updateLocalContax(contax);
   inject('<div id = "redTex">Invalid: '+cmd+"</div>"); //id  = 'redText' makes the text red - usually used in errors
   localStorage.setItem('contax', JSON.stringify(contax));
 }

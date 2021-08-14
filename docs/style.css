@@ -21,7 +21,7 @@ input {
     font-family: 'Fira Code', monospace;
     background-color: black;
     border:none;
-    color: purple;
+    color: white;
     overflow: hidden;   
     font-size: 13px;
 }
@@ -55,19 +55,6 @@ a:hover {
 }
 a:active {
     color: purple;
-}
-button:hover {
-    cursor: pointer;
-    animation: ackButtonHover 0.5s;
-    background-color: purple;
-    color: black;
-    border-color:purple;
-}
-button {
-    border-radius: 10px;
-    border: 2px solid purple;
-    margin-left: 20px;
-    margin-top: 20px;
 }
 h1 {
     font-size: 70px;

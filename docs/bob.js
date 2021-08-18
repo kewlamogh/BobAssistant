@@ -109,9 +109,9 @@ function process(cmd) {
     window.location.href = 'https://bob-web.amoghthecool.repl.co';  
     return;
   }
-  if (cmd.indexOf('calc ') >= 0) {
+  if (cmd.indexOf('calculate ') >= 0) {
     try {
-      inject("Answer: "+ eval(pars(5, chars)));
+      inject("Answer: "+ eval(pars(10, chars)));
       return;
     } catch {
       inject("<div id = 'redTex'>Invalid expression!</div>")

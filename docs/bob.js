@@ -18,6 +18,7 @@ function process(cmd) {
   }
   if (cmd.indexOf('what is ') >= 0) {
     inject('<a href= "https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+')+'">Here</a>');
+    window.open("https://www.bing.com/search?q=what+is+"+pars(7, chars).replace(' ', '+'), "_blank");
     return;
   }
   if (cmd.toLowerCase() == "i am bored") {
@@ -30,6 +31,9 @@ function process(cmd) {
   }
   if (cmd.indexOf('bing ') >= 0) {
     inject("<a href = 'https://www.bing.com/search?q="+pars(5, chars).replace(' ', '+')+"'>Here</a>");
+    window.open("https://www.bing.com/search?q="+pars(5, chars).replace(' ', '+'), "_blank");
+
+    
     return;
   }
   if (cmd == 'you suck!') {
@@ -38,6 +42,7 @@ function process(cmd) {
   }
   if (cmd.indexOf('define ') >= 0) {
     inject('<a href = "https://www.bing.com/search?q=meaning+of+'+pars(6, chars).replace(' ', '+')+'">Here</a>');
+    window.open("https://www.bing.com/search?q=meaning+of+"+pars(6, chars).replace(' ', '+'), "_blank")
     return;
   }
   if (cmd.indexOf('add todo ') >= 0) {
@@ -60,6 +65,7 @@ function process(cmd) {
   }
   if (cmd.indexOf('how to ') >= 0) {
     inject('https://bing.com/search?q=how+to+' +pars(7, chars).replace(' ', '+'))
+    window.open('https://bing.com/search?q=how+to+' +pars(7, chars).replace(' ', '+'), "_blank")
     return;
   }
   if (cmd.indexOf('open ') >= 0) {

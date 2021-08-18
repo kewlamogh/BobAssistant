@@ -119,7 +119,7 @@ function process(cmd) {
     }
   }
   if (cmd == 'help'){
-    inject('Commands: [datetime - gets time, tglAco - toggles show command with bobs answer, clear - clears, bing <something> - searchs something on bing, addTodo <name> - adds todo to todo list, deleteTodo <todo> - deletes todo, getTodos - gets todos, howTo <what> - searchs how to do something, opn <what> - opns something, bob-inf - gives info about bob, bob-update - updates bob, calc <expression> - calculates something, bob-quickMsg ,msg:<msg>to:<emailadress/contact> - sends quick message for you, addContax name:<contactname>_p:<emailadress> - adds contact to Bob Contax, opn <pname>in repl]')
+    inject('Commands: [datetime - gets time, clear - clears, bing <something> - searchs something on bing, add todo <name> - adds todo to todo list, delete todo <todo> - deletes todo, get todos - gets todos, how to <what> - searchs how to do something, open <what> - opns something, bob-inf - gives info about bob, bob-update - updates bob, calc <expression> - calculates something, message body:<text> to:<emailadress/contact> - sends quick message for you, add contact name:<contactname> people:<emailadress> - adds contact to Bob Contax, opn <pname>in repl]')
     return;
   }
   if ('hello' == cmd || 'hello!' == cmd) {

@@ -83,8 +83,8 @@ function process(cmd) {
     }
   }
   if (cmd.indexOf('add contact ') >= 0) {
-    const name = cmd.split('name:')[1].split('people:')[0];
-    const email = cmd.split('people:')[1];
+    const name = cmd.split('name:')[1].split(' people:')[0];
+    const email = cmd.split(' people:')[1];
     contax[name] = email;
     inject('Contact added')
     return;

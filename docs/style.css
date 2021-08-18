@@ -1,72 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+* {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  float: right;
+  margin-top: 40px;
+}
+body {
+  overflow: 100%;
+}
 #chat {
-  border-radius: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+.timel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  float: left;
+  margin-top: 40px;
+}
+.uprow {
+  float: left;
+  padding-left: 30px;
+  background-color: white;
+}
+span.uprow {
+  padding-top: 12px;
+  font-size: 30px;
+  background-color: white;
+}
+#uprowcont {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+}
+.r {
+  width: 20%;
+  text-align: center;
+  float: right;
+  background-color: teal;
+  border-radius: 30px;
+  margin: 30px;
+  height: 50px;
+  overflow-y: auto;
+}
+
+.l {
+  margin: 30px;
+  height: 50px;
+  width: 20%;
+  text-align: center;
+  float: left;
+  background-color: white;
   border: 2px solid black;
-  overflow-y:auto;
+  border-radius: 30px;
+  overflow-y: auto;
 }
-#redTex {
-  color: red;
-}
-div {
+body {
   text-align: center;
 }
-::placeholder {
-  text-align: left;
+#textbar {
+  border-radius: 5px;
+  width: 90%;
+  outline: none;
+  border: none;
 }
-input {
-  width: 150px;
-  outline: 0px solid transparent;
+#send {
+  cursor: pointer;
 }
-* {
-    text-align: center;
-    font-family: 'Fira Code', monospace;
-    background-color: black;
-    border:none;
-    color: white;
-    overflow: hidden;   
-    font-size: 13px;
+#sendcont {
+  width: 100%;
+  background-color: white;
+  display: inline-flex;
 }
-q {
-    quotes: "''" "''";
-    color: white;
+#sendcont {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  bottom: 0;
+  padding-bottom: 25px;
 }
-li,i,h2 {
-    color:white;
-}
-@keyframes changeBackgroundColor {
-    0% {background-color: black; color: orange; text-decoration-color: orange;}
-    100% {background-color: orange; color: white; text-decoration-color: white;}
-}
-@keyframes ackButtonHover {
-    0% {background-color: black; color: purple;}
-    50% {background-color: black; color: purple;}
-    100% {background-color: purple; color: black; border-color:purple;}
-}
-a {
-    text-decoration: overline;  
-    color: orange;
-    font-size:13px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-a:hover {   
-    animation: changeBackgroundColor 0.5s;
-    background-color: orange;
-    color: white;
-}
-a:active {
-    color: purple;
-}
-h1 {
-    font-size: 70px;
-}
-h3 {
-    font-size: 40px;
-    color: white;
-    word-wrap: break-word;
-}
-canvas {
-    border: 2px solid purple;
-}
-.inline {
-    display: inline-flex;
+body::-webkit-scrollbar {
+  display: none;
 }

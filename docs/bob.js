@@ -2,7 +2,6 @@ let todos = [];
 let custmOpns = {};
 let contax = {};
 custmOpns['scratch'] = 'https://scratch.mit.edu';
-custmOpns['diary'] = 'https://onedrive.live.com/edit.aspx?resid=53FFA026F34A670C!651&ithint=file%2cdocx&wdOrigin=OFFICECOM-WEB.START.MRU';
 document.getElementById("chat").innerHTML += "<h1><br></h1>";
 process("clear");
 process("help");

@@ -97,8 +97,8 @@ function process(cmd) {
     return;                 
   }
   if (cmd.indexOf('message ') >= 0) {
-    var msg = cmd.split('body:')[1].split('to:')[0];
-    var toWho = cmd.split('to:')[1] //[bob-quickMsg,msg,przon]
+    var msg = cmd.split('body:')[1].split(' to:')[0];
+    var toWho = cmd.split(' to:')[1] //[bob-quickMsg,msg,przon]
     if (contax[toWho] == null) {
       window.open('mailto:'+toWho+'?subject=Quick Message&body='+msg+'\n - Sent with Bob')
     } else {
@@ -165,7 +165,6 @@ function inject(w) {
   let d = new Date()
   document.getElementById('chat').innerHTML += `<div class = "r"><br>`+w+`</div><br><h1><br></h1>`
 }
-
 
 function inject2(w) {
   let d = new Date()

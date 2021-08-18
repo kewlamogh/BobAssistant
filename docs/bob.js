@@ -1,31 +1,22 @@
-let todos = []; //todos
-let custmOpns = {}; //opns other than gmail 
-let contax = localStorage.getItem("contax") || {}; //contacts
-eval((contax == {} ? "localStorage.setItem('contax', '{'ah': 'oof'}')" : "//nothing"));
-contax = (contax != {} ? JSON.parse(contax) : contax);
-
-function updateLocalContax(contax) {
-  localStorage.setItem("contax", JSON.stringify(contax));
-}
-
+let todos = [];
+let custmOpns = {};
+let contax = {};
+custmOpns['scratch'] = 'https://scratch.mit.edu';
+custmOpns['diary'] = 'https://onedrive.live.com/edit.aspx?resid=53FFA026F34A670C!651&ithint=file%2cdocx&wdOrigin=OFFICECOM-WEB.START.MRU';
+document.getElementById("chat").innerHTML += "<h1><br></h1>";
 function process(cmd) {
-  updateLocalContax(contax);
-  //always return out of the process func if cmd is valid and execed
-  //if you don't then the error at the bottom will execute
-  //:)
-  let chars = cmd.split(""); // chars
-  if (listsAreSame(chars, "datetime".split(""))) { //comparing lists, slightly inneficient
+  inject2(cmd);
+  let chars = cmd.split("");
+  if (listsAreSame(chars, "datetime".split(""))) {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     let currentDate = new Date();
-    let time = currentDate.getHours()+5 + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds(); //concat
-    
+    let time = currentDate.getHours()+5 + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
     inject(today + " at " + time);
     return;
   }
   if (cmd.indexOf('whatIs ') >= 0) {
     window.open('https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+'), '_blank');
-    inject(genAnchor('https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+')));
     return;
   }
   if (listsAreSame(chars, "clear".split(''))) {
@@ -34,7 +25,6 @@ function process(cmd) {
   }
   if (cmd.indexOf('bing ') >= 0) {
     window.open('https://www.bing.com/search?q='+pars(5, chars).replace(' ', '+'), '_blank')
-    inject('<a href = "https://www.bing.com/search?q='+pars(5, chars).replace(' ', '+')+'" target = "_blank">Link here</a>');
     return;
   }
   if (cmd == 'you suck!') {
@@ -43,7 +33,6 @@ function process(cmd) {
   }
   if (cmd.indexOf('def ') >= 0) {
     window.open('https://www.bing.com/search?q=meaning+of+'+pars(4, chars).replace(' ', '+'), '_blank')
-    inject(genAnchor('https://www.bing.com/search?q=meaning+of+'+pars(4, chars).replace(' ', '+')));
     return;
   }
   if (cmd.indexOf('addTodo ') >= 0) {
@@ -93,8 +82,7 @@ function process(cmd) {
     const name = cmd.split('name:')[1].split('_p')[0];
     const email = cmd.split('_p')[1];
     contax[name] = email;
-    inject('Contact added');
-    updateLocalContax();
+    inject('Contact added')
     return;
   }
   if (cmd == 'bob-inf') {
@@ -114,7 +102,7 @@ function process(cmd) {
     return;
   }
   if (cmd == 'bob-update') {
-    window.location.href = 'https://kewlamogh.github.io/BobAssistant';
+    window.location.href = 'https://bob-web.amoghthecool.repl.co';
     return;
   }
   if (cmd.indexOf('calc ') >= 0) {
@@ -127,7 +115,7 @@ function process(cmd) {
     }
   }
   if (cmd == 'bob-cmds'){
-    inject('Commands: [datetime - gets time, tglAco - toggles show command with bobs answer, clear - clears, bing <something> - searchs something on bing, addTodo <name> - adds todo to todo list, deleteTodo <todo> - deletes todo, getTodos - gets todos, howTo <what> - searchs how to do something, opn <what> - opns something, bob-inf - gives info about bob, bob-update - updates bob, calc <expression> - calculates something, bob-quickMsg _m:<msg>_r:<emailadress/contact> - sends quick message for you, addContax name:<contactname>_p:<emailadress> - adds contact to Bob Contax, opn <pname>in repl]')
+    inject('Commands: [datetime - gets time, tglAco - toggles show command with bobs answer, clear - clears, bing <something> - searchs something on bing, addTodo <name> - adds todo to todo list, deleteTodo <todo> - deletes todo, getTodos - gets todos, howTo <what> - searchs how to do something, opn <what> - opns something, bob-inf - gives info about bob, bob-update - updates bob, calc <expression> - calculates something, bob-quickMsg ,msg:<msg>to:<emailadress/contact> - sends quick message for you, addContax name:<contactname>_p:<emailadress> - adds contact to Bob Contax, opn <pname>in repl]')
     return;
   }
   if ('hello' == cmd || 'hello!' == cmd) {
@@ -135,24 +123,15 @@ function process(cmd) {
     return;
   }
   if ('thanks' == cmd || 'thanks!' == cmd || 'thx' == cmd || 'thx!' == cmd) {
-    inject('Welcome! If you like me, please upvote the project here: <a href = "https://github.com/kewlamogh/BobAssistant">Bob</a>');
+    inject('Welcome! If you like me, please upvote the project here: <a href = "https://replit.com/@AmoghTheCool/Bob-web?v=1"> </a>');
     return;
   }
-  updateLocalContax(contax);
-  inject('<div id = "redTex">Invalid: '+cmd+"</div>"); //id  = 'redText' makes the text red - usually used in errors
+  inject('<div id = "redTex">Invalid: '+cmd+"</div>");
   localStorage.setItem('contax', JSON.stringify(contax));
 }
-document.getElementById('cmd').addEventListener('keypress', function (event) {
-  if (event.keyCode == 13) { call();sessionStorage.setItem("l", this.value);document.getElementById('cmd').value = '';}
+document.getElementById('textbar').addEventListener('keypress', function (event) {
+  if (event.keyCode == 13) { wut();document.getElementById('textbar').value = '';}
 }) 
-function genAnchor(src) {
-  let myNewAnchor = document.createElement('a');
-  myNewAnchor.href = src;
-  myNewAnchor.target = '_blank';
-  myNewAnchor.innerText = 'Link here';
-  return myNewAnchor;
-}
-//gets "slice" of list
 function pars(startIndx, li) {
   let out = '';
   for (var i = startIndx; i <= li.length - 1; i++) {
@@ -160,7 +139,6 @@ function pars(startIndx, li) {
   }
   return out
 }
-//comparing lists
 function listsAreSame(l1, l2) {
   for (var i = 0; i <= l1.length; i++) {
     if (l1[i] != l2[i]) {
@@ -169,13 +147,23 @@ function listsAreSame(l1, l2) {
   }
   return true
 }
-
+function indexparse(i1, i2, l) {
+  let outp = '';
+  for (var p = i1; p <= i2; p++) {
+    outp += l[p];
+  }
+  return outp;
+}
 function inject(w) {
-    document.getElementById('chat').innerHTML = "<h1></h1>>"+cmd.value+"<br>"+w+document.getElementById('chat').innerHTML; //nothing to modify here
-}
-function call() {
-  process(document.getElementById('cmd').value)
+  let d = new Date()
+  document.getElementById('chat').innerHTML += `<div class = "r"><br>`+w+`</div><br><h1><br></h1>`
 }
 
-custmOpns['scratch'] = 'https://scratch.mit.edu';
 
+function inject2(w) {
+  let d = new Date()
+  document.getElementById('chat').innerHTML += `<div class = "l"><br>`+w+`</div><br><h1><br></h1>`
+}
+function wut() {
+  process(document.getElementById('textbar').value)
+}

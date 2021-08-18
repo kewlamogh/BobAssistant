@@ -20,6 +20,10 @@ function process(cmd) {
     inject('<a href= "https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+')+'">Here</a>');
     return;
   }
+  if (cmd.toLowerCase() == "i am bored") {
+    inject("Well, you can go to Replit.com and do something there, or you can go to Github. If you can't do that, then read the Kindle..? ")
+    return;
+  }
   if (listsAreSame(chars, "clear".split(''))) {
     document.getElementById('chat').innerHTML = "";
     return;

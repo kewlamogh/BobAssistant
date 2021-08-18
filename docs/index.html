@@ -2,24 +2,34 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Bob</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel = "shortcut icon" href = "assets/blogo.jpg"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>repl.it</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
-  <div>
-    ><input id='cmd' placeholder="How can I help you?"></input>
-  </div>
+<div id="uprowcont">
+	<img class = "uprow" src = "person.jpg" width="70" height="70"></img>
+      <span class="uprow">The Bob Assistant</span><br><br><br><br><br><hr>
+    </div>
 
-  <div id='chat'></div>
-  <script src="parser.js"></script>
-  <script src="support.js"></script>
+
+<body>
+  <h1><br></h1>
+  <h1><br></h1>
+  <h1><br></h1>
+
+  <div id = "chat">
+  </div>
+<h1><br></h1><h1><br></h1>
+<div id ="sendcont">
+	<img class = "uprow" src = "send.jpg" width="20" height="20" id = "send" onclick = "wut()"></img>
+  <input id = "textbar" placeholder="Type a blabber"> </input>
+  </div>
 </body>
 
+
+
+	<script src="bob.js">
+	</script>
 </html>

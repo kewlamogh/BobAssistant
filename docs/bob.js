@@ -4,6 +4,8 @@ let contax = {};
 custmOpns['scratch'] = 'https://scratch.mit.edu';
 custmOpns['diary'] = 'https://onedrive.live.com/edit.aspx?resid=53FFA026F34A670C!651&ithint=file%2cdocx&wdOrigin=OFFICECOM-WEB.START.MRU';
 document.getElementById("chat").innerHTML += "<h1><br></h1>";
+process("clear");
+process("help");
 function process(cmd) {
   inject2(cmd);
   let chars = cmd.split("");
@@ -15,8 +17,8 @@ function process(cmd) {
     inject(today + " at " + time);
     return;
   }
-  if (cmd.indexOf('whatIs ') >= 0) {
-    window.open('https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+'), '_blank');
+  if (cmd.indexOf('what is ') >= 0) {
+    inject('<a href= "https://www.bing.com/search?q=what+is+'+pars(7, chars).replace(' ', '+')+'">Here</a>');
     return;
   }
   if (listsAreSame(chars, "clear".split(''))) {
@@ -24,42 +26,44 @@ function process(cmd) {
     return;
   }
   if (cmd.indexOf('bing ') >= 0) {
-    window.open('https://www.bing.com/search?q='+pars(5, chars).replace(' ', '+'), '_blank')
+    inject("<a href = 'https://www.bing.com/search?q="+pars(5, chars).replace(' ', '+')+"'>Here</a>");
     return;
   }
   if (cmd == 'you suck!') {
     inject('Sorry to hear that! If you need an update, comment it at <a target = "_blank" href = "https://replit.com/@AmoghTheCool/Bob-web?v=1">here</a> and Amogh will <b>try</b> to update. Keep typing <code>bob-update</code> to refresh.')
     return;
   }
-  if (cmd.indexOf('def ') >= 0) {
-    window.open('https://www.bing.com/search?q=meaning+of+'+pars(4, chars).replace(' ', '+'), '_blank')
+  if (cmd.indexOf('define ') >= 0) {
+    inject('<a href = "https://www.bing.com/search?q=meaning+of+'+pars(6, chars).replace(' ', '+')+'">Here</a>');
     return;
   }
-  if (cmd.indexOf('addTodo ') >= 0) {
+  if (cmd.indexOf('add todo ') >= 0) {
     inject('appended');
-    todos.push(pars(8, chars));
+    todos.push(pars(9, chars));
     return;
   } 
-  if (cmd == 'getTodos') {
+  if (cmd == 'get todos') {
     inject("Todos: "+ todos.toString().replace(',', ", "));
     return;
   }
-  if (cmd.indexOf('deleteTodo ') >= 0) {
+  if (cmd.indexOf('delete todo ') >= 0) {
     for (var i =0; i<=todos.length -1; i++) {
-      if (todos[i] == pars(11, chars)) {
+      if (todos[i] == pars(12, chars)) {
         todos.splice(i, 1);
       }
     }
+    inject("Done.")
     return;
   }
-  if (cmd.indexOf('howTo ') >= 0) {
-    window.open('https://bing.com/search?q=how+to+' +pars(6, chars).replace(' ', '+'), '_blank')
+  if (cmd.indexOf('how to ') >= 0) {
+    inject('https://bing.com/search?q=how+to+' +pars(7, chars).replace(' ', '+'))
     return;
   }
-  if (cmd.indexOf('opn ') >= 0) {
-    switch (pars(4, chars)) {
+  if (cmd.indexOf('open ') >= 0) {
+    switch (pars(5, chars)) {
       case 'gmail':
         window.open("https://gmail.com", '_blank')
+        inject('gmail')
         return;
     }
     if (pars(4, chars).indexOf('repl') >= 0) {
@@ -78,20 +82,20 @@ function process(cmd) {
       return;
     }
   }
-  if (cmd.indexOf('addContax ') >= 0) {
-    const name = cmd.split('name:')[1].split('_p')[0];
-    const email = cmd.split('_p')[1];
+  if (cmd.indexOf('add contact ') >= 0) {
+    const name = cmd.split('name:')[1].split('people:')[0];
+    const email = cmd.split('people:')[1];
     contax[name] = email;
     inject('Contact added')
     return;
   }
-  if (cmd == 'bob-inf') {
+  if (cmd == 'info') {
     inject('Your amazing, useful, assistant called Bob! Orginially made in Python, Bob is an awesome AI assistant to help us Devs get through our day. <br>"Bob is marvelous, simply marvelous!"<br>-Unnamed Client')
     return;                 
   }
-  if (cmd.indexOf('bob-msg ') >= 0) {
-    var msg = cmd.split('_m:')[1].split('_r:')[0];
-    var toWho = cmd.split('_r:')[1] //[bob-quickMsg,msg,przon]
+  if (cmd.indexOf('message ') >= 0) {
+    var msg = cmd.split('body:')[1].split('to:')[0];
+    var toWho = cmd.split('to:')[1] //[bob-quickMsg,msg,przon]
     if (contax[toWho] == null) {
       window.open('mailto:'+toWho+'?subject=Quick Message&body='+msg+'\n - Sent with Bob')
     } else {
@@ -102,7 +106,7 @@ function process(cmd) {
     return;
   }
   if (cmd == 'bob-update') {
-    window.location.href = 'https://bob-web.amoghthecool.repl.co';
+    window.location.href = 'https://bob-web.amoghthecool.repl.co';  
     return;
   }
   if (cmd.indexOf('calc ') >= 0) {
@@ -114,7 +118,7 @@ function process(cmd) {
       return;
     }
   }
-  if (cmd == 'bob-cmds'){
+  if (cmd == 'help'){
     inject('Commands: [datetime - gets time, tglAco - toggles show command with bobs answer, clear - clears, bing <something> - searchs something on bing, addTodo <name> - adds todo to todo list, deleteTodo <todo> - deletes todo, getTodos - gets todos, howTo <what> - searchs how to do something, opn <what> - opns something, bob-inf - gives info about bob, bob-update - updates bob, calc <expression> - calculates something, bob-quickMsg ,msg:<msg>to:<emailadress/contact> - sends quick message for you, addContax name:<contactname>_p:<emailadress> - adds contact to Bob Contax, opn <pname>in repl]')
     return;
   }
